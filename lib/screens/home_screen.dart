@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quick_comm/screens/all_tab_screen.dart';
 import 'package:quick_comm/utils/modified_text.dart';
+import 'package:quick_comm/widgtes/search_button.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,38 +11,68 @@ class HomeScreen extends StatefulWidget {
   }
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  int currentIndex = 0;
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Column(
-          children: [
-            Icon(
-              Icons.food_bank_rounded,
-              size: 35,
+        backgroundColor: Colors.green.shade100,
+        foregroundColor: Colors.transparent,
+        title: SearchButton(
+          searchController: _searchController,
+        ),
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: const <Widget>[
+            Tab(
+              icon: Icon(Icons.card_travel_rounded),
             ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.location_on,
-                    color: Colors.grey,
-                  ),
+            Tab(
+              icon: Icon(Icons.liquor),
+            ),
+            Tab(
+              icon: Icon(Icons.medical_information),
+            ),
+            Tab(
+              icon: Icon(Icons.flatware_outlined),
+            ),
+          ],
+          indicatorSize: TabBarIndicatorSize.tab,
+          dividerHeight: 0.5,
+        ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: const <Widget>[
+                AllTabScreen(),
+                Center(
+                  child: Text('Movie Tab Content'),
                 ),
-                Text(
-                  'NewDelhi India',
-                  style: TextStyle(fontSize: 12),
+                Center(
+                  child: Text('Account Tab Content'),
+                ),
+                Center(
+                  child: Text('People Tab Content'),
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

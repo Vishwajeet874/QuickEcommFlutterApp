@@ -115,7 +115,7 @@ ThemeData CustomTheme() {
 
     // 4. Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
-      filled: true,
+      filled: false,
       fillColor: surfaceWhite,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),

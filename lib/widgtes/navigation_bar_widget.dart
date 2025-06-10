@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quick_comm/screens/home_screen.dart';
 import 'package:quick_comm/widgtes/custom_person_button.dart';
 
 class NavigationBarWidget extends StatefulWidget {
@@ -11,7 +12,7 @@ class NavigationBarWidget extends StatefulWidget {
 class _NavigationBarWidgetState extends State<NavigationBarWidget> {
   int currentIndex = 0;
   final widgetList = [
-    Text('Home'),
+    HomeScreen(),
     Text('Explore'),
     Text('Favourite'),
     Text('Account'),
