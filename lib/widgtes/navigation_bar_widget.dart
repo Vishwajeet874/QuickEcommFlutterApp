@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart'; // Import the package
 import 'package:quick_comm/screens/home_screen.dart';
 import 'package:quick_comm/widgtes/custom_person_button.dart';
 
@@ -10,112 +11,65 @@ class NavigationBarWidget extends StatefulWidget {
 }
 
 class _NavigationBarWidgetState extends State<NavigationBarWidget> {
-  int currentIndex = 0;
+  int currentIndex =
+      0; // _page is often used with CurvedNavigationBar, but currentIndex works too
+  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+
   final widgetList = [
     HomeScreen(),
-    Text('Explore'),
-    Text('Favourite'),
-    Text('Account'),
-    Text('Cart'),
+    const Text('Explore'), // Added const for Text widgets
+    const Text('Favourite'),
+    const Text('Account'),
+    const Text('Cart'),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('QuickEcommerce'),
+        title: const Text('QuickEcommerce'), // Added const
         centerTitle: true,
         notificationPredicate: (notification) => mounted,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              // Define your colors for the gradient
               colors: [
                 Color(0xFF4CAF50),
                 Color(0xFF81C784),
-                Color(0xFFC8E6C9), // A lighter, yellowish-green
+                Color(0xFFC8E6C9),
               ],
-              // Define where the gradient starts and ends (e.g., top-left to bottom-right)
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
           ),
         ),
-        actions: [
+        actions: const [
+          // Added const
           CustomPersonButton(),
         ],
       ),
       body: Center(child: widgetList.elementAt(currentIndex)),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white, // Optional background color
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withValues(alpha: 0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(0, -3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: NavigationBar(
-            destinations: [
-              NavigationDestination(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-                selectedIcon: Icon(
-                  Icons.home_filled,
-                  color: Colors.lightGreenAccent,
-                ),
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.manage_search),
-                label: 'Explore',
-                selectedIcon: Icon(
-                  Icons.manage_search,
-                  color: Colors.lightGreenAccent,
-                ),
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.favorite_border),
-                label: 'Favourite',
-                selectedIcon: Icon(
-                  Icons.favorite,
-                  color: Colors.lightGreenAccent,
-                ),
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.person_outline),
-                label: 'Account',
-                selectedIcon: Icon(
-                  Icons.person,
-                  color: Colors.lightGreenAccent,
-                ),
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.shopping_cart_outlined),
-                label: 'Cart',
-                selectedIcon: Icon(
-                  Icons.shopping_cart,
-                  color: Colors.lightGreenAccent,
-                ),
-              ),
-            ],
-            onDestinationSelected: (value) => setState(() {
-              currentIndex = value;
-            }),
-            shadowColor: Colors.green.shade100,
-            indicatorColor: Color(0xFF4CAF50),
-            selectedIndex: currentIndex,
-            elevation: 0,
-            height: 60,
-          ),
-        ),
+      bottomNavigationBar: CurvedNavigationBar(
+        key: _bottomNavigationKey,
+        index: currentIndex,
+        height: 60.0,
+        items: const <Widget>[
+          Icon(Icons.home_outlined, size: 30, color: Colors.white),
+          Icon(Icons.manage_search, size: 30, color: Colors.white),
+          Icon(Icons.favorite_border, size: 30, color: Colors.white),
+          Icon(Icons.person_outline, size: 30, color: Colors.white),
+          Icon(Icons.shopping_cart_outlined, size: 30, color: Colors.white),
+        ],
+        color: const Color(0xFF4CAF50),
+        buttonBackgroundColor: const Color(0xFF81C784),
+        backgroundColor: Colors.transparent,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 300),
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
       ),
     );
   }

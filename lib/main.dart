@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quick_comm/utils/custom_theme.dart';
+
 import 'package:quick_comm/widgtes/navigation_bar_widget.dart';
 
 void main() {
