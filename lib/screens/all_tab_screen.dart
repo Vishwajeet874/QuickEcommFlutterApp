@@ -4,12 +4,13 @@ import 'package:quick_comm/data/bannerData.dart';
 import 'package:quick_comm/data/categoriesData.dart';
 import 'package:quick_comm/data/featuredData.dart';
 import 'package:quick_comm/data/products.dart';
+import 'package:quick_comm/screens/customsidebar_screen.dart';
 import 'package:quick_comm/utils/custom_theme.dart';
 import 'package:quick_comm/utils/modified_text.dart';
 import 'package:quick_comm/widgtes/card_image.dart';
 import 'package:quick_comm/widgtes/category_card.dart';
 
-import '../widgtes/product_card.dart';
+import '../widgtes/previously_bought_product_card.dart';
 
 class AllTabScreen extends StatefulWidget {
   const AllTabScreen({super.key});
@@ -98,7 +99,7 @@ class _AllTabScreenState extends State<AllTabScreen> {
                   final product = productData[index];
                   return SizedBox(
                     width: 170,
-                    child: ProductCard(
+                    child: PreviouslyBoughtProductCard(
                       imagePath: product['imagePath'],
                       productName: product['productName'],
                       quantity: product['quantity'],
@@ -131,9 +132,17 @@ class _AllTabScreenState extends State<AllTabScreen> {
               ),
               itemBuilder: (context, index) {
                 final category = categoriesGroceriesData[index];
-                return CategoryCard(
-                  text: category['category'],
-                  imagePath: category['imagePath'],
+                return InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => CustomSideBarScreen()),
+                    );
+                  },
+                  child: CategoryCard(
+                    text: category['category'],
+                    imagePath: category['imagePath'],
+                  ),
                 );
               },
               itemCount: categoriesGroceriesData.length,

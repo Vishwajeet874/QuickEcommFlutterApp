@@ -12,6 +12,8 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Card(
+      elevation: 5,
+      shadowColor: primaryGreenLight,
       child: Column(
         children: [
           ClipRRect(

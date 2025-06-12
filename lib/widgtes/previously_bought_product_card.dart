@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quick_comm/utils/custom_theme.dart';
 import 'package:quick_comm/utils/modified_text.dart';
 
-class ProductCard extends StatelessWidget {
+class PreviouslyBoughtProductCard extends StatelessWidget {
   final String imagePath;
   final String productName;
   final String quantity;
@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
   final bool showOffer; // Optional, to show offer badge
   final String? offerPercentage; // Optional, for offer badge text
 
-  const ProductCard({
+  const PreviouslyBoughtProductCard({
     super.key,
     required this.imagePath,
     required this.productName,
