@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quick_comm/data/vegfruitsData.dart';
+import 'package:quick_comm/data/vegFruitsCategoryData.dart';
 import 'package:quick_comm/utils/custom_theme.dart';
 import 'package:quick_comm/utils/modified_text.dart';
+import 'package:quick_comm/widgtes/grid_view_builder.dart';
+
 import 'package:quick_comm/widgtes/sideicon.dart';
 
 class CustomSideBarScreen extends StatefulWidget {
@@ -18,24 +20,20 @@ class _CustomSideBarScreenState extends State<CustomSideBarScreen> {
   @override
   void initState() {
     super.initState();
-    _pages = [
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-      Text('Page1'),
-    ];
+    _pages = List.generate(
+      VegFruitsData
+          .length, // This ensures a page for every category in your data
+      (index) {
+        final category = VegFruitsData[index];
+
+        return Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GridViewBuilder(categoryData: category['data']),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -67,7 +65,7 @@ class _CustomSideBarScreenState extends State<CustomSideBarScreen> {
                       });
                     },
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.symmetric(vertical: 12.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -102,7 +100,7 @@ class _CustomSideBarScreenState extends State<CustomSideBarScreen> {
                             ),
                           ),
                           AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.linear,
                             width: isSelected ? 4 : 0,
                             height: isSelected ? 100 : 0,
@@ -119,11 +117,7 @@ class _CustomSideBarScreenState extends State<CustomSideBarScreen> {
               ),
             ),
           ),
-          Expanded(
-            child: Center(
-              child: _pages[_selectedCategoryIndex],
-            ),
-          ),
+          _pages[_selectedCategoryIndex],
         ],
       ),
     );

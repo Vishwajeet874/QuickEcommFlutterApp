@@ -65,6 +65,13 @@ flutter:
     - assets/banner_images/
     - assets/category_images/
     - assets/Veg & Fruits/
+    - assets/Veg & Fruits/Fruits/
+    - assets/Veg & Fruits/Coriander/
+    - assets/Veg & Fruits/exotic_fruits/
+    - assets/Veg & Fruits/Freshly Cut/
+    - assets/Veg & Fruits/seasonal_fruits/
+    - assets/Veg & Fruits/Vegetables/
+    - assets/Veg & Fruits/Frozen/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
