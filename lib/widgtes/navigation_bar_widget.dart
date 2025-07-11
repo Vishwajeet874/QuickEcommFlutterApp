@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart'; // Import the package
+import 'package:quick_comm/screens/explore_screen.dart';
 import 'package:quick_comm/screens/home_screen.dart';
 import 'package:quick_comm/widgtes/custom_person_button.dart';
 
@@ -17,7 +18,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
 
   final widgetList = [
     HomeScreen(),
-    const Text('Explore'), // Added const for Text widgets
+    ExploreScreen(), // Added const for Text widgets
     const Text('Favourite'),
     const Text('Account'),
     const Text('Cart'),
@@ -26,28 +27,6 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('QuickEcommerce'), // Added const
-        centerTitle: true,
-        notificationPredicate: (notification) => mounted,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF4CAF50),
-                Color(0xFF81C784),
-                Color(0xFFC8E6C9),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-        ),
-        actions: const [
-          // Added const
-          CustomPersonButton(),
-        ],
-      ),
       body: Center(child: widgetList.elementAt(currentIndex)),
       bottomNavigationBar: CurvedNavigationBar(
         key: _bottomNavigationKey,

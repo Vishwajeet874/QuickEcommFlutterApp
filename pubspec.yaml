@@ -35,6 +35,11 @@ dependencies:
   google_fonts:
   carousel_slider: ^5.1.1
   curved_navigation_bar: ^1.0.6
+  glass_container: ^0.0.4
+  glass_kit: ^4.0.1
+  card_swiper: ^3.0.1
+  smooth_page_indicator: ^1.2.1
+  flutter_lorem: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -68,7 +73,7 @@ flutter:
     - assets/Veg & Fruits/Fruits/
     - assets/Veg & Fruits/Coriander/
     - assets/Veg & Fruits/exotic_fruits/
-    - assets/Veg & Fruits/Freshly Cut/
+    - assets/Veg & Fruits/freshly_cut/
     - assets/Veg & Fruits/seasonal_fruits/
     - assets/Veg & Fruits/Vegetables/
     - assets/Veg & Fruits/Frozen/

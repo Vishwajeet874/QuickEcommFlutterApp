@@ -265,56 +265,56 @@ final List<Map<String, String>> seasonalFruitsData = [
 final List<Map<String, String>> freshlyCutFruitsData = [
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/mixed_fruit_bowl.jpg', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/mixed_fruit_bowl.jpg', // Replace with your actual image path
     'title': 'Mixed Fruit Bowl',
     'price': '99',
     'quantity': '250 g',
   },
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/watermelon_chunks.webp', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/watermelon_chunks.webp', // Replace with your actual image path
     'title': 'Watermelon Chunks',
     'price': '45',
     'quantity': '300 g',
   },
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/pineapple_slices.webp', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/pineapple_slices.webp', // Replace with your actual image path
     'title': 'Pineapple Slices',
     'price': '60',
     'quantity': '200 g',
   },
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/papaya_cubes.jpeg', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/papaya_cubes.jpeg', // Replace with your actual image path
     'title': 'Papaya Cubes',
     'price': '35',
     'quantity': '250 g',
   },
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/melon_mix.jpeg', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/melon_mix.jpeg', // Replace with your actual image path
     'title': 'Melon Medley',
     'price': '70',
     'quantity': '350 g',
   },
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/pomegranate_seeds.jpg', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/pomegranate_seeds.jpg', // Replace with your actual image path
     'title': 'Pomegranate Seeds',
     'price': '120',
     'quantity': '100 g',
   },
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/orange_segments.webp', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/orange_segments.webp', // Replace with your actual image path
     'title': 'Orange Segments',
     'price': '50',
     'quantity': '150 g',
   },
   {
     'imagePath':
-        'assets/Veg & Fruits/Freshly Cut/kiwi_slices.jpg', // Replace with your actual image path
+        'assets/Veg & Fruits/freshly_cut/kiwi_slices.jpg', // Replace with your actual image path
     'title': 'Kiwi Slices',
     'price': '85',
     'quantity': '100 g',

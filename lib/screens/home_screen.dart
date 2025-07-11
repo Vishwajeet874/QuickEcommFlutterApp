@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_comm/screens/all_tab_screen.dart';
+import 'package:quick_comm/utils/custom_theme.dart';
 import 'package:quick_comm/utils/modified_text.dart';
 import 'package:quick_comm/widgtes/search_button.dart';
 
@@ -30,8 +31,10 @@ class _HomeScreenState extends State<HomeScreen>
       appBar: AppBar(
         backgroundColor: Colors.green.shade100,
         foregroundColor: Colors.transparent,
-        title: SearchButton(
-          searchController: _searchController,
+        title: ModifiedText(
+          text: 'Quick Commerce',
+          size: 28,
+          color: textDark,
         ),
         bottom: TabBar(
           controller: _tabController,
